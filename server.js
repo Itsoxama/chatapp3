@@ -40,7 +40,7 @@ allowCrossDomain = function(req, res, next) {
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
   if ('OPTIONS' === req.method) {
-    res.send(200);
+    res.sendStatus(200);
   } else {
     next();
   }
@@ -446,6 +446,108 @@ app.post("/api/updatemsg", (req, res) => {
   
       })
   
+
+
+// add allowed
+app.post("/allowed", (req, res) => {
+ var a=req.body.id
+var ab=req.body.allowed
+for(var i=0;i<3;i++){
+  if(i===0){
+    
+  user.findByIdAndUpdate(
+
+    { _id:a  }, 
+    { $push: { allowed:{id: ab } } },
+    {upsert:true},
+ 
+   function (error, success) {
+         if (error) {
+             console.log(error);
+         } else {
+         }
+     }
+
+  
+)
+  }
+  else if(i===1){
+    
+  user.findByIdAndUpdate(
+
+    { _id:ab  }, 
+    { $push: { allowed:{id: a } } },
+    {upsert:true},
+ 
+   function (error, success) {
+         if (error) {
+             console.log(error);
+         } else {
+         }
+     }
+
+  
+)
+
+  }
+
+}
+
+    })
+
+    
+// add invite
+
+app.post("/invite", (req, res) => {
+ 
+  var a=req.body.id
+  
+  var ab=req.body.addid
+  
+user.findByIdAndUpdate(
+
+  { _id:a  }, 
+  { $push: { invite:{
+    id: ab,
+    name:req.body.name
+   } } },
+   function (error, success) {
+         if (error) {
+             console.log(error);
+         } else {
+             console.log(success);
+         }
+     }
+
+  
+)
+    })
+
+// delete invite
+
+app.post("/deleteinvite", (req, res) => {
+  var a=req.body.id
+  var ab= req.body.deleteid
+  console.log(req.body)
+  
+  
+user.findByIdAndUpdate(
+
+  { _id:a  }, 
+  { $pull: { invite:{
+    id: ab
+   } } },
+   function (error, success) {
+         if (error) {
+             console.log(error);
+         } else {
+         }
+     }
+
+  
+)
+    })
+
 
 // create a message
 app.post("/addchat", (req, res) => {
