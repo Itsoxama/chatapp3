@@ -5,6 +5,20 @@ const messageSchema = new mongoose.Schema({
   username:String,
   password:String,
   lastactive:String,
+  
+  allowed:[{
+    id:{
+      type:String,
+    unique:true,
+    }
+  }],
+  invite:[{
+    id:{
+      type:String,
+        unique: true
+    },
+    name:String
+  }],
   chats:[{
     id:String,
     chatroomid:String,
