@@ -203,6 +203,27 @@ app.post("/api/updatedeskmsg", (req, res) => {
 )
 
     })
+    
+// update messgae
+app.post("/api/updatedeskmsg2", (req, res) => {
+ 
+
+  deskspacemsg.findOneAndUpdate(
+    { _id:req.body._id  }, 
+    { message: req.body.message },
+
+   function (error, success) {
+         if (error) {
+             console.log(error);
+         } else {
+             console.log(success);
+         }
+     }
+
+  
+)
+
+    })
 
 // delete desk message
 app.delete("/api/deletedeskmessage", (req, res) => {
