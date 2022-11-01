@@ -40,6 +40,7 @@
         </div>
         
         <nav class="navbar fixed-bottom bg-infoa rounded-0 d-print-none">
+            
             <div class="text-white">Video Call</div>
 
             <div class="pull-right room-comm" hidden>
@@ -47,6 +48,15 @@
                         Unique Identifier: <span  id='randomNumber'></span>
                     </span>
 
+        
+                    <button class="endmeeting2" id="addmeeting2">
+                        Leave Meeting
+            
+                    </button>
+                    <button class="endmeeting" id="addmeeting">
+                        End Meeting
+            
+                    </button>
                 <button class="btn btn-sm rounded-0 btn-no-effect" id='toggle-video' title="Hide Video">
                     <i class="fa fa-video video "></i>
                 </button>
@@ -123,7 +133,10 @@
                         <div class="col-12 text-center h2 mb-3">CHAT</div>
                     </div>
 
-                    <div id='chat-messages'></div>
+                    <div id='chat-messages'>
+
+
+                    </div>
 
                     <form>
                         <div class="input-group mb-3" >
