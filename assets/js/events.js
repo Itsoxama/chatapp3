@@ -37,6 +37,89 @@ window.addEventListener( 'load', () => {
     } );
 
 
+    //When the 'endmeet' button is clicked.
+    document.getElementById( 'addmeeting' ).addEventListener( 'click', ( e ) => {
+var a=window.location.href.split('_')
+
+        var da={
+            message:"video call ended",
+            _id:a[1]
+      
+          }
+          console.log(da)
+
+var ai=0;
+  const repeat = () => {
+
+    setTimeout(() => {
+
+
+      if (ai === 2) return
+      else if (ai === 0) {
+
+        var url = 'https://server.quickdex.net/api/updatedeskmsg2';
+          
+        fetch(url, {
+          method: "POST",
+          headers: {'Content-Type': 'application/json'}, 
+          body: JSON.stringify(da)
+        }).then(res => {
+          console.log("Request complete! response:", res);
+        });
+
+
+      }
+      else if (ai === 1) {
+
+window.location.href="https://chatapp.quickdex.net/"
+      }
+      ai = ai + 1
+      repeat();
+    }, 500);
+  }
+
+  repeat()
+
+
+
+
+
+
+    } );
+    
+    //When the 'endmeet' button is clicked.
+    document.getElementById( 'addmeeting2' ).addEventListener( 'click', ( e ) => {
+     
+        
+        var ai=0;
+          const repeat = () => {
+        
+            setTimeout(() => {
+        
+        
+              if (ai === 2) return
+              else if (ai === 0) {
+        
+        
+                window.location.href="https://chatapp.quickdex.net/"
+        
+              }
+              else if (ai === 1) {
+        
+              }
+              ai = ai + 1
+              repeat();
+            }, 500);
+          }
+        
+          repeat()
+        
+        
+        
+        
+        
+        
+            } );
     //When the 'Enter room' button is clicked.
     document.getElementById( 'enter-room' ).addEventListener( 'click', ( e ) => {
         e.preventDefault();
