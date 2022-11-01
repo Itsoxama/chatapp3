@@ -11,7 +11,51 @@
     padding-top: 15px;
     min-height: 100vh;
 }
+.endmeeting{
+    
+    width: 120px;
+    position: fixed;
+    bottom: 50px;
+    border: none;
+    background-color: crimson;
+    border: none;
+    color: white;
 
+    right: 50px;
+}
+
+.endmeeting:hover{
+    position: fixed;
+    bottom: 50px;
+    border: none;
+    background-color: rgb(238, 40, 80);
+    border: none;
+    color: white;
+
+    right: 50px;
+}
+
+.endmeeting2{
+    position: fixed;
+    bottom: 100px;
+    border: none;
+    background-color: crimson;
+    border: none;
+    color: white;
+    width: 120px;
+
+    right: 50px;
+}
+
+.endmeeting2:hover{
+    position: fixed;
+    border: none;
+    background-color: rgb(238, 40, 80);
+    border: none;
+    color: white;
+
+    right: 50px;
+}
 .chat-col.chat-opened {
     right: 0;
     overflow-y: auto;
