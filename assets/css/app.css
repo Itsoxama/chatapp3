@@ -17,7 +17,8 @@
     position: fixed;
     bottom: 50px;
     border: none;
-    background-color: crimson;
+    
+background: linear-gradient(90deg, rgba(1,233,207,1) 1%, rgb(13, 130, 248) 59%, rgba(2,151,217,1) 100%);
     border: none;
     color: white;
 
@@ -34,12 +35,15 @@
 
     right: 50px;
 }
-
+button:focus{
+    outline: none;
+}
 .endmeeting2{
     position: fixed;
     bottom: 100px;
     border: none;
-    background-color: crimson;
+    
+background: linear-gradient(90deg, rgba(1,233,207,1) 1%, rgb(13, 130, 248) 59%, rgba(2,151,217,1) 100%);
     border: none;
     color: white;
     width: 120px;
