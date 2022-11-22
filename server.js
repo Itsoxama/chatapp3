@@ -91,6 +91,34 @@ io.to(data.to).emit('callaccepted',data.signal)
   socket.on('voice call',(id,peer,user)=>{
     io.emit("calling",id,peer,user)
   })
+
+
+  socket.on('closecall', (id) => {
+    io.emit("cancelcall",id)
+  });
+  socket.on('voice call',(id,peer,user)=>{
+    io.emit("calling",id,peer,user)
+  })
+
+  
+  socket.on('mute',(id)=>{
+    io.emit("mutethis",id)
+  })
+  
+  socket.on('unmute',(id)=>{
+    io.emit("unmutethis",id)
+  })
+
+  
+  socket.on('vmute',(id)=>{
+    io.emit("vmutethis",id)
+  })
+  
+  socket.on('vunmute',(id)=>{
+    io.emit("vunmutethis",id)
+  })
+
+
 socket.on('answered',(apeer,from)=>{
   io.emit("recieved",apeer,from)
 
@@ -316,6 +344,27 @@ app.delete("/api/deleteuser", (req, res) => {
   );
 });
 
+
+// update hidefrom
+app.post("/api/hidefrom", (req, res) => {
+ console.log('hidefrom'+req.body.params)
+
+  chat.findOneAndUpdate(
+    { _id:req.body.params._id  }, 
+    { hidefrom: req.body.params.id },
+
+   function (error, success) {
+         if (error) {
+             console.log(error);
+         } else {
+             console.log(success);
+         }
+     }
+
+  
+)
+
+    })
 
 // delete message
 app.delete("/api/deletemessage", (req, res) => {
