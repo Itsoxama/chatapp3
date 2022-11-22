@@ -5,7 +5,7 @@ const messageSchema = new mongoose.Schema({
   recid:String,
   sendername:String,
   message:String,
-  
+  hidefrom:String,
 
 
 },
